@@ -1,16 +1,15 @@
+import { useEffect } from "react";
+import Lenis from "lenis";
 import { Button } from "../../components/ui/button";
-import { AgencyCapabilitiesSection } from "./sections/AgencyCapabilitiesSection/AgencyCapabilitiesSection";
 import { CommunityInvitationSection } from "./sections/CommunityInvitationSection/CommunityInvitationSection";
 import { ContactInvitationSection } from "./sections/ContactInvitationSection/ContactInvitationSection";
 import { CreativeAgencyHeroSection } from "./sections/CreativeAgencyHeroSection/CreativeAgencyHeroSection";
 import { DesignManifestoContentSection } from "./sections/DesignManifestoContentSection/DesignManifestoContentSection";
-import { DesignPhilosophySection } from "./sections/DesignPhilosophySection/DesignPhilosophySection";
-import { FashionCampaignShowcaseSection } from "./sections/FashionCampaignShowcaseSection/FashionCampaignShowcaseSection";
 import { FeaturedWorkShowcaseSection } from "./sections/FeaturedWorkShowcaseSection/FeaturedWorkShowcaseSection";
 import { ProjectCarouselSection } from "./sections/ProjectCarouselSection/ProjectCarouselSection";
 import { SiteFooterSection } from "./sections/SiteFooterSection";
+import { Skiper30 } from "./sections/Skiper30/Skiper30";
 import { VisualPortfolioMosaicSection } from "./sections/VisualPortfolioMosaicSection/VisualPortfolioMosaicSection";
-import { WeddingCampaignShowcaseSection } from "./sections/WeddingCampaignShowcaseSection/WeddingCampaignShowcaseSection";
 
 const navigationItems = [
   { label: "Work", href: "#work", detail: "(19)" },
@@ -18,77 +17,31 @@ const navigationItems = [
   { label: "Let's talk", href: "#contact", detail: "+" },
 ];
 
-const portfolioTiles = [
-  {
-    position: "col-start-1 row-start-1",
-    src: "/untitled-design--7--1.png",
-  },
-  {
-    position: "col-start-2 row-start-1",
-  },
-  {
-    position: "col-start-3 row-start-1",
-    src: "/untitled-design--3--1.png",
-  },
-  {
-    position: "col-start-2 row-start-2",
-    src: "/untitled-design--2--1-12.png",
-  },
-  {
-    position: "col-start-4 row-start-2",
-    src: "/untitled-design--2--2.png",
-  },
-  {
-    position: "col-start-1 row-start-3",
-    src: "/untitled-design--2--1-12.png",
-  },
-  {
-    position: "col-start-3 row-start-4",
-    src: "/untitled-design--2--1-12.png",
-  },
-  {
-    position: "col-start-4 row-start-5",
-    src: "/untitled-design--2--1-12.png",
-  },
-  {
-    position: "col-start-1 row-start-6",
-    src: "/untitled-design--2--1-12.png",
-  },
-  {
-    position: "col-start-4 row-start-6",
-    src: "/untitled-design--2--1-12.png",
-  },
-  {
-    position: "col-start-2 row-start-7",
-    src: "/untitled-design--2--1-12.png",
-  },
-  {
-    position: "col-start-3 row-start-7",
-    src: "/untitled-design--2--1-12.png",
-  },
-  {
-    position: "col-start-1 row-start-8",
-    src: "/untitled-design--2--1-12.png",
-  },
-  {
-    position: "col-start-2 row-start-9",
-    src: "/untitled-design--2--1-12.png",
-  },
-  {
-    position: "col-start-4 row-start-9",
-    src: "/untitled-design--2--1-12.png",
-  },
-  {
-    position: "col-start-1 row-start-10",
-    src: "/untitled-design--2--1-12.png",
-  },
-  {
-    position: "col-start-3 row-start-11",
-    src: "/untitled-design--2--1-12.png",
-  },
-];
-
 export const FiddleDigital = (): JSX.Element => {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      gestureOrientation: "vertical",
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+    });
+
+    let rafId: number;
+    const raf = (time: number) => {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    };
+    rafId = requestAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
+  }, []);
+
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#101214]">
       <header className="absolute inset-x-0 top-0 z-10 px-[19px] pt-[5px]">
@@ -145,50 +98,17 @@ export const FiddleDigital = (): JSX.Element => {
         <section id="work" aria-label="Featured work">
           <FeaturedWorkShowcaseSection />
         </section>
-        <section aria-label="Wedding campaign showcase">
-          <WeddingCampaignShowcaseSection />
-        </section>
-        <section aria-label="Fashion campaign showcase">
-          <FashionCampaignShowcaseSection />
-        </section>
-        <section id="about" aria-label="Design philosophy">
-          <DesignPhilosophySection />
-        </section>
-        <section aria-label="Design manifesto">
+        <section id="about" aria-label="Design manifesto">
           <DesignManifestoContentSection />
         </section>
-        <section aria-label="Projects">
+        <section aria-label="Projects and Capabilities">
           <ProjectCarouselSection />
-        </section>
-        <section aria-label="Agency capabilities">
-          <AgencyCapabilitiesSection />
         </section>
         <section aria-label="Visual portfolio">
           <VisualPortfolioMosaicSection />
         </section>
-        <section
-          aria-label="Portfolio image mosaic"
-          className="overflow-x-auto bg-[#101214]"
-        >
-          <div
-            className="grid min-w-[1905px] grid-cols-[repeat(4,472px)] grid-rows-[repeat(11,472px)]"
-            style={{ backgroundImage: "url(..//canvas-14.png)" }}
-          >
-            {portfolioTiles.map((tile, index) => (
-              <figure
-                key={`${tile.position}-${index}`}
-                className={`m-0 h-[472px] w-[472px] overflow-hidden bg-[url(..//canvas-14.png)] bg-cover bg-center ${tile.position}`}
-              >
-                {tile.src && (
-                  <img
-                    className="h-full w-full object-cover"
-                    alt="Untitled design"
-                    src={tile.src}
-                  />
-                )}
-              </figure>
-            ))}
-          </div>
+        <section aria-label="Portfolio image mosaic">
+          <Skiper30 />
         </section>
         <section aria-label="Community invitation">
           <CommunityInvitationSection />

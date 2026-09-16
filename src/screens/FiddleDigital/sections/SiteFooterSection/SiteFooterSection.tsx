@@ -1,11 +1,11 @@
 import { Button } from "../../../../components/ui/button";
 
 const primaryLinks = ["Work", "About", "Let's talk"];
-const socialLinks = ["Awwwards", "Instagram", "Dribbble", "Behance"];
+const socialLinks = ["Instagram", "Facebook", "LinkedIn", "TikTok"];
 
 export const SiteFooterSection = (): JSX.Element => {
   return (
-    <footer className="w-full overflow-hidden bg-transparent px-[19.2px] pt-[42.65px] text-[#101214]">
+    <footer className="w-full overflow-hidden bg-[#c8c2cf] px-[19.2px] pt-[42.65px] text-[#101214]">
       <div className="mx-auto flex min-h-[501.91px] w-full max-w-[1866.62px] flex-col pt-[4.8px]">
         <div
           aria-label="Fiddle-dee-dee"

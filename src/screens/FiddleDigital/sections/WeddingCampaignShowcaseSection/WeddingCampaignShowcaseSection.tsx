@@ -4,8 +4,8 @@ const campaign = {
   name: "Kaleida",
   description:
     "Kaleida is an award winning global experiential company with a unique specialism in holographic and immersive experiences.",
-  backgroundImage: "/text-1.png",
-  videoImage: "../video-5.png",
+  backgroundImage: "/text-1.webp",
+  videoImage: "../video-5.webp",
 };
 
 export const WeddingCampaignShowcaseSection = (): JSX.Element => {

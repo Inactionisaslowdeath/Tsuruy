@@ -10,60 +10,88 @@ const manifestoPhrases = [
 ];
 
 export const DesignManifestoContentSection = (): JSX.Element => {
-  const handleScrollToVideo = () => {
-    document.getElementById("design-manifesto-video")?.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
-  };
-
   return (
     <section
       aria-labelledby="design-manifesto-title"
-      className="relative flex w-full flex-col items-center overflow-hidden bg-[#19171c] text-white"
+      className="relative flex w-full flex-col items-center overflow-hidden bg-[#101214] pt-[140px] pb-[100px] text-white"
     >
-      <div className="relative flex h-[clamp(64px,22vw,410px)] w-full items-center justify-center">
+      {/* Title block with brackets: "( DESIGN THAT EDUCATES )" */}
+      <div className="relative flex w-full max-w-[1905px] items-center justify-between px-[19.2px]">
         <span
           aria-hidden="true"
-          className="absolute left-[0.05%] top-[20.98%] [font-family:'KHTeka-Regular',Helvetica] text-[clamp(1rem,9.57vw,178.6px)] font-normal leading-[1.2] whitespace-nowrap"
+          className="[font-family:'KHTeka-Regular',Helvetica] text-[clamp(48px,9.57vw,178.6px)] font-normal leading-[1.08] select-none text-white"
         >
           (
         </span>
-        <h2
-          id="design-manifesto-title"
-          className="absolute top-0 [font-family:'KHTeka-Regular',Helvetica] text-[clamp(1rem,9.57vw,178.6px)] font-normal leading-[1.08] tracking-[-0.02em] whitespace-nowrap"
-        >
-          DESIGN
-        </h2>
-        <p className="absolute top-[47.07%] flex max-w-full items-center justify-center px-2 text-center [font-family:'KHTeka-Regular',Helvetica] text-[clamp(1rem,9.57vw,178.6px)] font-normal leading-[1.08] tracking-[-0.02em] whitespace-nowrap">
-          {manifestoPhrases[4]}
-        </p>
+        <div className="flex flex-col items-center text-center">
+          <h2
+            id="design-manifesto-title"
+            className="[font-family:'KHTeka-Regular',Helvetica] text-[clamp(48px,9.57vw,178.6px)] font-normal leading-[1.08] tracking-[-0.02em] whitespace-nowrap text-white"
+          >
+            STYLE
+          </h2>
+          <p className="[font-family:'KHTeka-Regular',Helvetica] text-[clamp(48px,9.57vw,178.6px)] font-normal leading-[1.08] tracking-[-0.02em] whitespace-nowrap text-white">
+            THAT EMPOWERS
+          </p>
+        </div>
         <span
           aria-hidden="true"
-          className="absolute right-[0.05%] top-[20.98%] [font-family:'KHTeka-Regular',Helvetica] text-[clamp(1rem,9.57vw,178.6px)] font-normal leading-[1.2] whitespace-nowrap"
+          className="[font-family:'KHTeka-Regular',Helvetica] text-[clamp(48px,9.57vw,178.6px)] font-normal leading-[1.08] select-none text-white"
         >
           )
         </span>
-        <Button
-          aria-label="View design manifesto video"
-          className="absolute bottom-0 left-1/2 h-auto -translate-x-1/2 rounded-none bg-transparent p-0 hover:bg-transparent focus-visible:ring-white"
-          type="button"
-          variant="ghost"
-          onClick={handleScrollToVideo}
-        >
-          <img
-            alt=""
-            className="h-[clamp(20px,2.68vw,50px)] w-[clamp(20px,2.68vw,50px)]"
-            src="/pixelated-arrow-down-1.png"
-          />
-        </Button>
       </div>
-      <figure
-        id="design-manifesto-video"
-        className="h-[clamp(64px,7.02vw,131px)] w-[min(263px,70vw)] rounded-[clamp(10px,1.07vw,20px)] [background:url(..//video-7.png)_50%_50%_/_cover]"
-      >
-        <figcaption className="sr-only">Design manifesto video</figcaption>
-      </figure>
+
+      {/* Top pixel arrow pointing down to video card */}
+      <div className="mt-8 flex justify-center">
+        <img
+          src="/icons/pixel-arrow-down.svg"
+          alt="Arrow down"
+          className="h-[32px] w-[32px] select-none"
+        />
+      </div>
+
+      {/* 1866x131 Container: PRECISE. INNOVATIVE. [263x131 Video Card] FUTURISTIC. EXPRESSIVE. */}
+      <div className="mt-4 flex h-[131px] w-full max-w-[1866px] items-center justify-between px-6">
+        {/* Left text */}
+        <div className="flex-1 text-right pr-12">
+          <span className="[font-family:'KHTekaMono-Regular',Helvetica] text-[13.5px] uppercase tracking-[0.05em] text-white/90">
+            AUTHENTIC.&nbsp;&nbsp;EDITORIAL.
+          </span>
+        </div>
+
+        {/* Center small video card: 263x131 */}
+        <div
+          id="design-manifesto-video"
+          className="relative h-[131px] w-[263px] shrink-0 overflow-hidden rounded-[20px] bg-[#1a1c1e] shadow-lg"
+        >
+          <video
+            src="https://res.cloudinary.com/otxrtuoh/video/upload/v1789491875/mini-video.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        {/* Right text */}
+        <div className="flex-1 text-left pl-12">
+          <span className="[font-family:'KHTekaMono-Regular',Helvetica] text-[13.5px] uppercase tracking-[0.05em] text-white/90">
+            ELEVATED.&nbsp;&nbsp;EXPRESSIVE.
+          </span>
+        </div>
+      </div>
+
+      {/* Bottom pixel arrow pointing up to video card */}
+      <div className="mt-4 flex justify-center">
+        <img
+          src="/icons/pixel-arrow-up.svg"
+          alt="Arrow up"
+          className="h-[32px] w-[32px] select-none"
+        />
+      </div>
     </section>
   );
 };

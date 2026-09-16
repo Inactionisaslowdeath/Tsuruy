@@ -48,7 +48,7 @@ export const DesignPhilosophySection = (): JSX.Element => {
           <img
             className="h-[50px] w-[50px]"
             alt=""
-            src="/pixelated-arrow-1.png"
+            src="/pixelated-arrow-1.webp"
           />
         </Button>
       </div>

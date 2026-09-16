@@ -4,15 +4,15 @@ const campaign = {
   title: "ThermoKonnect",
   description:
     "ThermoKonnect specializes in crafting high-quality terminal junction splices for seamless electrical connections.",
-  backgroundImage: "/text-2.png",
-  mediaImage: "../video-6.png",
+  backgroundImage: "/text-2.webp",
+  mediaImage: "../video-6.webp",
 };
 
 export const FashionCampaignShowcaseSection = (): JSX.Element => {
   return (
     <section
       aria-labelledby="thermokonnect-title"
-      className="min-h-[1143px] overflow-hidden bg-[#101214] bg-[url('/text-2.png')] bg-[length:1905px_1143px] bg-[position:center_-198px] bg-no-repeat pt-[322px]"
+      className="min-h-[1143px] overflow-hidden bg-[#101214] bg-[url('/text-2.webp')] bg-[length:1905px_1143px] bg-[position:center_-198px] bg-no-repeat pt-[322px]"
       style={{ backgroundImage: `url(${campaign.backgroundImage})` }}
     >
       <div className="mx-auto flex w-full max-w-[1905px] flex-col">

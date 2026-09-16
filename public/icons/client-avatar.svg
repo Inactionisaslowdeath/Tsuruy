@@ -1,0 +1,13 @@
+<svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="34" cy="34" r="33.5" stroke="#101214" stroke-opacity="0.25" fill="#c8c2cf" />
+  <g transform="translate(23, 21) scale(0.9)">
+    <!-- Isometric cube/device icon -->
+    <path d="M12 2 L22 8 L12 14 L2 8 Z" fill="#2A2D34" stroke="#101214" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M2 8 L12 14 V26 L2 20 Z" fill="#101214" stroke="#101214" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M22 8 L12 14 V26 L22 20 Z" fill="#3D414D" stroke="#101214" stroke-width="1.5" stroke-linejoin="round"/>
+    <!-- Top face details -->
+    <path d="M7 6 L17 11" stroke="#8E92A0" stroke-width="1" stroke-linecap="round"/>
+    <!-- Accent dot -->
+    <circle cx="12" cy="18" r="1.5" fill="#FFFFFF"/>
+  </g>
+</svg>
